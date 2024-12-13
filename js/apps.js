@@ -45,11 +45,18 @@ const boxes = [
 ]
 
 
+let message = document.getElementById('message')
+message.classList.add('text-center')
+
 let count = 0
 
 const counter =()=>{
     count++
     document.getElementById('countDisplay').innerText = count
+
+    if(count == 100){
+        this.message.innerText = 'are you even trying'
+    }
 }
 
 
@@ -75,6 +82,7 @@ boxes.forEach(item => {
             counter()
         })
 })
+
 
 
 
