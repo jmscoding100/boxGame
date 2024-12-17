@@ -146,7 +146,8 @@ class Game {
         ]
 
         this.scores = {
-            currScore: this.count,
+            prevScore: 0,
+            currScore: 0,
             bestScore: 0
         }
     }
@@ -292,17 +293,15 @@ class Game {
     }
 
     setScores(){
-        let bestScore 
-
+        this.scores.prevScore = this.scores.currScore
+        this.scores.currScore = this.count
+        
         if(this.count < this.scores.currScore && this.count != 0){
-            bestScore = this.count
+            this.scores.bestScore = this.count
         } else {
-            bestScore = this.scores.currScore
+            this.scores.bestScore = this.scores.currScore
         }
-
-        this.scores.bestScore = bestScore
-
-        this.bestScore.innerText = this.scores.bestScore
+        
 
         this.bestScore.innerText = this.scores.bestScore
     }
